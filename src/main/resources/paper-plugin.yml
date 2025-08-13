@@ -1,0 +1,7 @@
+name: CustomDaytime
+version: '1.0.0'
+main: me.seedim.customDaytime.CustomDaytime
+api-version: '1.21'
+authors:
+  - Seedim
+description: Customise Minecraft's day-night-cycle

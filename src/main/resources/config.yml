@@ -1,0 +1,27 @@
+################################################################################
+#                                                                              #
+#                           Custom Daytime Plugin                              #
+#                                                                              #
+#     Created by Seedim (https://github.com/SeedimV)                           #
+#                                                                              #
+#     This plugin lets you customize the length of day and night cycles,       #
+#     and replaces the usual sleep-to-skip-night mechanic with a smooth        #
+#     acceleration of time when enough players sleep.                          #
+#                                                                              #
+#     Licensed under the GPL-3.0 License.                                      #
+#                                                                              #
+#     Check out my other projects on https://modrinth.com/user/SeedimV.        #
+#                                                                              #
+################################################################################
+
+# Length of the daytime cycle in minutes
+# Default: 10.0
+dayLengthMinutes: 10.0
+
+# Length of the nighttime cycle in minutes
+# Default: 10.0
+nightLengthMinutes: 10.0
+
+# Length of night fast forwarding in seconds
+# Default: 5.0
+nightFastForwardSeconds: 5.0
