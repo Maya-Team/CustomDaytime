@@ -1,4 +1,4 @@
-package me.seedim.customDaytime.Listeners;
+package xyz.mayahive.customDaytime.Listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

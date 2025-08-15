@@ -1,6 +1,6 @@
 name: CustomDaytime
-version: '1.0.0'
-main: me.seedim.customDaytime.CustomDaytime
+version: '1.0.1'
+main: xyz.mayahive.customDaytime.CustomDaytime
 api-version: '1.21'
 authors:
   - Seedim

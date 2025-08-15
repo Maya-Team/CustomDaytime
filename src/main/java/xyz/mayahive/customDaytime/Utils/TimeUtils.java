@@ -1,6 +1,6 @@
-package me.seedim.customDaytime.Utils;
+package xyz.mayahive.customDaytime.Utils;
 
-import me.seedim.customDaytime.CustomDaytime;
+import xyz.mayahive.customDaytime.CustomDaytime;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
@@ -21,7 +21,7 @@ public class TimeUtils {
         if (world != null) {
             fastForwardWorlds.add(world.getUID());
 
-            broadcastActionBar(world, "fastforwardstart");
+            broadcastActionBar(world, "The night races toward dawn...");
         }
     }
 
@@ -86,9 +86,9 @@ public class TimeUtils {
         return (12000 / fastForwardGameTicks);
     }
 
-    public static void broadcastActionBar(World world, String key) {
+    public static void broadcastActionBar(World world, String message) {
         for  (Player player : world.getPlayers()) {
-            player.sendActionBar(Component.translatable(key));
+            player.sendActionBar(Component.text(message));
         }
     }
 }

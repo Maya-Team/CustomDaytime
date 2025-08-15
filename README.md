@@ -1,6 +1,6 @@
 # 🌞 Custom Daytime Plugin 🌙
 
-[![Downloads](https://img.shields.io/modrinth/dt/C7YliNqw?logo=modrinth&logoColor=white&style=for-the-badge)](https://modrinth.com/project/custom-daytime)
+[![Download on Modrinth](https://img.shields.io/badge/Modrinth-Download-brightgreen?style=for-the-badge&logo=modrinth)](https://modrinth.com/plugin/custom-daytime)
 [![Latest Release](https://img.shields.io/github/v/release/SeedimV/CustomDaytime?logo=modrinth&logoColor=white&style=for-the-badge)](https://modrinth.com/project/custom-daytime)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://github.com/SeedimV/CustomDaytime?tab=GPL-3.0-1-ov-file#readme)
 

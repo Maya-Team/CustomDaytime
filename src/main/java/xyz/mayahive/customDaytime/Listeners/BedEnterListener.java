@@ -1,7 +1,7 @@
-package me.seedim.customDaytime.Listeners;
+package xyz.mayahive.customDaytime.Listeners;
 
-import me.seedim.customDaytime.CustomDaytime;
-import me.seedim.customDaytime.Utils.TimeUtils;
+import xyz.mayahive.customDaytime.CustomDaytime;
+import xyz.mayahive.customDaytime.Utils.TimeUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;
