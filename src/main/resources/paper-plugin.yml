@@ -1,5 +1,5 @@
 name: CustomDaytime
-version: '1.0.0'
+version: '1.0.1'
 main: me.seedim.customDaytime.CustomDaytime
 api-version: '1.21'
 authors:
