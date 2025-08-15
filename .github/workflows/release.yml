@@ -42,12 +42,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to Modrinth
-        uses: modrinth/modrinth-upload@v1
+        uses: Kir-Antipov/mc-publish@v3
         with:
-          token: ${{ secrets.MODRINTH_TOKEN }}
-          project_id: "C7YliNqw"
-          version_number: ${{ github.ref_name }}
+          modrinth-id: C7YliNqw
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          version-name: ${{ github.ref_name }}
+          version-number: ${{ github.ref_name }}
           changelog: ${{ steps.changelog.outputs.changelog }}
           files: build/libs/*.jar
-          game_versions: '["1.21", "1.21.1", "1.21.2", "1.21.3", "1.21.4", "1.21.5", "1.21.6", "1.21.7", "1.21.8"]'
-          loaders: '["paper"]'
+          loaders: paper
