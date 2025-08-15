@@ -1,6 +1,6 @@
-package me.seedim.customDaytime.Tasks;
+package xyz.mayahive.customDaytime.Tasks;
 
-import me.seedim.customDaytime.Utils.TimeUtils;
+import xyz.mayahive.customDaytime.Utils.TimeUtils;
 import org.bukkit.World;
 
 public class TimeTickTask implements Runnable {

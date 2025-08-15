@@ -1,4 +1,4 @@
-package me.seedim.customDaytime.Updates;
+package xyz.mayahive.customDaytime.Updates;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

@@ -4,7 +4,7 @@ plugins {
     id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
-group = 'me.seedim'
+group = 'xyz.mayahive'
 version = '1.0.1'
 
 repositories {
@@ -57,5 +57,5 @@ processResources {
 }
 
 shadowJar {
-    relocate 'org.bstats', 'me.seedim.shadowed.bstats'
+    relocate 'org.bstats', 'xyz.mayahive.shadowed.bstats'
 }

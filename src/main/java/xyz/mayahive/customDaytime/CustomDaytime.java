@@ -1,10 +1,10 @@
-package me.seedim.customDaytime;
+package xyz.mayahive.customDaytime;
 
-import me.seedim.customDaytime.Listeners.BedEnterListener;
-import me.seedim.customDaytime.Listeners.BedLeaveListener;
-import me.seedim.customDaytime.Listeners.TimeSkipListener;
-import me.seedim.customDaytime.Tasks.TimeTickTask;
-import me.seedim.customDaytime.Updates.UpdateManager;
+import xyz.mayahive.customDaytime.Listeners.BedEnterListener;
+import xyz.mayahive.customDaytime.Listeners.BedLeaveListener;
+import xyz.mayahive.customDaytime.Listeners.TimeSkipListener;
+import xyz.mayahive.customDaytime.Tasks.TimeTickTask;
+import xyz.mayahive.customDaytime.Updates.UpdateManager;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

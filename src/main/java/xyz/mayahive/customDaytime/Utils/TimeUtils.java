@@ -1,6 +1,6 @@
-package me.seedim.customDaytime.Utils;
+package xyz.mayahive.customDaytime.Utils;
 
-import me.seedim.customDaytime.CustomDaytime;
+import xyz.mayahive.customDaytime.CustomDaytime;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
