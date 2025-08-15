@@ -3,9 +3,9 @@ package me.seedim.customDaytime;
 import me.seedim.customDaytime.Listeners.BedEnterListener;
 import me.seedim.customDaytime.Listeners.BedLeaveListener;
 import me.seedim.customDaytime.Listeners.TimeSkipListener;
-import me.seedim.customDaytime.Metrics.MetricsManager;
 import me.seedim.customDaytime.Tasks.TimeTickTask;
 import me.seedim.customDaytime.Updates.UpdateManager;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,7 +23,7 @@ public final class CustomDaytime extends JavaPlugin {
         saveDefaultConfig();
 
         // Metrics
-        new MetricsManager(instance, 26910);
+        new Metrics(instance, 26910);
 
         // Updates
         new UpdateManager(instance, "C7YliNqw");
