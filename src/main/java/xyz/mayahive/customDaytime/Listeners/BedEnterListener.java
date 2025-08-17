@@ -1,5 +1,6 @@
 package xyz.mayahive.customDaytime.Listeners;
 
+import org.bukkit.entity.Player;
 import xyz.mayahive.customDaytime.CustomDaytime;
 import xyz.mayahive.customDaytime.Utils.TimeUtils;
 import org.bukkit.Bukkit;
@@ -17,14 +18,19 @@ public class BedEnterListener implements Listener {
         // If player didn't successfully enter the bed, return
         if (event.getBedEnterResult() != PlayerBedEnterEvent.BedEnterResult.OK) return;
 
-        World world = event.getPlayer().getWorld();
+        Player player = event.getPlayer();
+        World world = player.getWorld();
 
         // If enough players are sleeping, start night fast forwarding
-        Bukkit.getScheduler().runTaskLater(CustomDaytime.getInstance(), () -> {
-            if (TimeUtils.isEnoughPlayersSleeping(world)) {
-                TimeUtils.startNightFastForward(world);
-            }
-        }, 1L); // delay 1 tick so isSleeping() returns true
+        Bukkit.getRegionScheduler().runDelayed(
+                CustomDaytime.getInstance(),
+                player.getLocation(),
+                scheduledTask -> {
+                    if (TimeUtils.isEnoughPlayersSleeping(world)) {
+                        TimeUtils.startNightFastForward(world);
+                    }
+                },
+                1
+        ); // delay 1 tick so isSleeping() returns true
     }
-
 }

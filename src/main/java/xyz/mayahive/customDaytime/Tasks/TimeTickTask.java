@@ -1,5 +1,6 @@
 package xyz.mayahive.customDaytime.Tasks;
 
+import org.bukkit.GameRule;
 import xyz.mayahive.customDaytime.Utils.TimeUtils;
 import org.bukkit.World;
 
@@ -7,6 +8,9 @@ public class TimeTickTask implements Runnable {
 
     private static final long TICKS_PER_DAY = 24000;
     private static final long TICKS_PER_HALF_DAY = 12000;
+    private double carry = 0.0;
+    private long customTime = 0;
+    private boolean initialized = false;
 
     @Override
     public void run() {
@@ -15,33 +19,43 @@ public class TimeTickTask implements Runnable {
         World world = TimeUtils.getDefaultWorld();
         if (world == null) return; // If world isn't loaded, return
 
-        // Get current time
-        long currentTime = world.getFullTime();
+        // Only proceed if daylight cycle is enabled
+        Boolean daylightCycle = world.getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE);
+        boolean cycleOn = daylightCycle != null && daylightCycle;
 
-        // Check if night fast forwarding is on
-        if (TimeUtils.isNightFastForward(world)) {
+        if (!initialized) {
+            // Initialize to current world time
+            customTime = world.getFullTime() % TICKS_PER_DAY;
+            initialized = true;
+        }
 
-            // Get incremented time
-            long newTime = (long) ( currentTime + TimeUtils.getFastForwardIncrementPerTick()) % TICKS_PER_DAY;
+        long currentWorldTime = world.getFullTime() %  TICKS_PER_DAY;
 
-            // Apply incremented time
-            world.setFullTime(newTime);
+        // Detect manual changes and sycn
+        if (Math.abs(currentWorldTime - customTime) > 1) {
+            customTime = currentWorldTime;
+            carry = 0.0;
+        }
 
-            // Check if it day
-            if (newTime < TICKS_PER_HALF_DAY) {
-                // Stop night fast forwarding
-                TimeUtils.stopNightFastForward(world);
-            }
-        } else {
-            // Check if it day
-            if (currentTime < TICKS_PER_HALF_DAY) {
-                // Apply day increment per tick
-                world.setFullTime((long) (currentTime + TimeUtils.getDayIncrementPerTick()) % TICKS_PER_DAY);
+        if(cycleOn) {
+            double increment;
+
+            if (TimeUtils.isNightFastForward(world)) {
+                increment = TimeUtils.getFastForwardIncrementPerTick();
+            } else if (customTime < TICKS_PER_HALF_DAY) {
+                increment = TimeUtils.getDayIncrementPerTick();
             } else {
-                // Apply night increment per tick
-                world.setFullTime((long) (currentTime + TimeUtils.getNightIncrementPerTick()) % TICKS_PER_DAY);
+                increment = TimeUtils.getNightIncrementPerTick();
+            }
+
+            carry += increment;
+
+            if (carry >= 1.0) {
+                long ticksToAdd = (long) carry;
+                carry -= ticksToAdd;
+                customTime = (customTime + ticksToAdd) % TICKS_PER_DAY;
             }
         }
+        world.setFullTime(customTime);
     }
-
 }

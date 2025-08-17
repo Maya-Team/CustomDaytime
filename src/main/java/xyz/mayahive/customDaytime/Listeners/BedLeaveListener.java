@@ -1,5 +1,6 @@
 package xyz.mayahive.customDaytime.Listeners;
 
+import org.bukkit.entity.Player;
 import xyz.mayahive.customDaytime.CustomDaytime;
 import xyz.mayahive.customDaytime.Utils.TimeUtils;
 import org.bukkit.Bukkit;
@@ -15,14 +16,20 @@ public class BedLeaveListener implements Listener {
     @EventHandler
     public void onBedLeave(PlayerBedLeaveEvent event) {
 
-        World world = event.getPlayer().getWorld();
+        Player player = event.getPlayer();
+        World world = player.getWorld();
 
         // If not enough players are sleeping, stop night fast forwarding
-        Bukkit.getScheduler().runTaskLater(CustomDaytime.getInstance(), () -> {
-            if (!TimeUtils.isEnoughPlayersSleeping(world)) {
-                TimeUtils.stopNightFastForward(world);
-            }
-        }, 1L); // delay so sleeping state is updated
+        Bukkit.getRegionScheduler().runDelayed(
+                CustomDaytime.getInstance(),
+                player.getLocation(),
+                scheduledTask -> {
+                    if (!TimeUtils.isEnoughPlayersSleeping(world)) {
+                        TimeUtils.stopNightFastForward(world);
+                    }
+                },
+                1
+        ); // delay so sleeping state is updated
 
         // Reset time since rest (to prevent phantom spawning)
         event.getPlayer().setStatistic(Statistic.TIME_SINCE_REST, 0);

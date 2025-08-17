@@ -8,6 +8,7 @@ import xyz.mayahive.customDaytime.Updates.UpdateManager;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.mayahive.customDaytime.Utils.TimeUtils;
 
 public final class CustomDaytime extends JavaPlugin {
 
@@ -34,8 +35,13 @@ public final class CustomDaytime extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new BedLeaveListener(), instance); // Bed Leave Listener
 
         // Timer
-        Bukkit.getScheduler().runTaskTimer(instance, new TimeTickTask(), 1, 1);
-
+        TimeTickTask timeTickTask = new TimeTickTask();
+        Bukkit.getGlobalRegionScheduler().runAtFixedRate(
+                instance,
+                task -> timeTickTask.run(),
+                1,
+                1
+        );
     }
 
     // Plugin instance getter
