@@ -55,11 +55,11 @@ Customize Minecraft's day/night cycle and experience smoother nights with this l
 | `nightFastForwardSeconds` | Time it takes to fast-forward night while sleeping | 5.0 (seconds)  |
 
 ## 📜 License
-This plugin is licensed under the [GNU General Public License v3.0](https://github.com/SeedimV/CustomDaytime/blob/master/LICENSE). You are free to use, modify, and distribute the plugin, but any derivative works must also be licensed under the same terms.
+This plugin is licensed under the [GNU General Public License v3.0](https://github.com/Maya-Team/CustomDaytime/blob/master/LICENSE). You are free to use, modify, and distribute the plugin, but any derivative works must also be licensed under the same terms.
 
 ## 🌐 Author
-Created by **Seedim**
-- GitHub: https://github.com/SeedimV
+Created by **MAYA Team**
+- GitHub: https://github.com/Maya-Team
 
 - Modrinth: https://modrinth.com/user/SeedimV
 
